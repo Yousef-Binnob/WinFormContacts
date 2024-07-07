@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormContacts", "WinFormContacts\WinFormContacts.csproj", "{998D3E97-3103-4CCB-A80E-0F0C5AA446C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess_Layer", "DataAccess_Layer\DataAccess_Layer.csproj", "{A5488657-1792-4BEF-A3F1-0050FBB78861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness_Layer", "Bussiness_Layer\Bussiness_Layer.csproj", "{68932AAE-DBF6-4ECC-8AF2-8D0B8453705B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{998D3E97-3103-4CCB-A80E-0F0C5AA446C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998D3E97-3103-4CCB-A80E-0F0C5AA446C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998D3E97-3103-4CCB-A80E-0F0C5AA446C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5488657-1792-4BEF-A3F1-0050FBB78861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5488657-1792-4BEF-A3F1-0050FBB78861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5488657-1792-4BEF-A3F1-0050FBB78861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5488657-1792-4BEF-A3F1-0050FBB78861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68932AAE-DBF6-4ECC-8AF2-8D0B8453705B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68932AAE-DBF6-4ECC-8AF2-8D0B8453705B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68932AAE-DBF6-4ECC-8AF2-8D0B8453705B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68932AAE-DBF6-4ECC-8AF2-8D0B8453705B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
