@@ -1,6 +1,6 @@
 ﻿namespace WinFormContacts
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.dgvContacts.AllowUserToDeleteRows = false;
             this.dgvContacts.AllowUserToOrderColumns = true;
             this.dgvContacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContacts.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvContacts.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvContacts.Location = new System.Drawing.Point(0, 96);
             this.dgvContacts.Name = "dgvContacts";
@@ -83,15 +84,15 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 32);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 587);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvContacts);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Text = "Contacts";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContacts)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
