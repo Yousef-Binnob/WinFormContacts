@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bussiness_Layer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace WinFormContacts
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            _Refresh();
+        }
+
+        private void _Refresh()
+        {
+            dgvContacts.DataSource = clsContact.ListContacts();
         }
     }
 }
