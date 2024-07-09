@@ -110,5 +110,10 @@ namespace WinFormContacts
             pbPicture.ImageLocation = Contact.ImagePath = "";
             llRemoveImage.Visible = false;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
