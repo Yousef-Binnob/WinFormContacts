@@ -40,12 +40,37 @@ namespace WinFormContacts
             if (Mode == enMode.AddNew)
             {
                 lblCaption.Text = "Add new contact";
-                //txtID.Text = "???";
-                llRemoveImage.Visible = false;
                 cbCountries.SelectedIndex = 0;
                 Contact = new clsContact();
                 return;
             }
+
+            Contact = clsContact.Find(ID);
+            if (Contact == null)
+            {
+                MessageBox.Show("Sorry!! Contact wit id = " + ID + " is not found");
+            }
+
+            txtFName.Text             = Contact.FirstName;
+            txtLName.Text             = Contact.LastName;
+            txtEmail.Text             = Contact.Email;
+            txtAddress.Text           = Contact.Address;
+            txtPhone.Text             = Contact.Phone;
+            dtpBirthdate.Value        = Contact.DateOfBirth;
+            cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find(Contact.CountryID).Name);
+
+            if (!string.IsNullOrWhiteSpace(Contact.ImagePath))
+            {
+                pbPicture.ImageLocation = Contact.ImagePath;
+            }
+
+            lblCaption.Text = "Update contact with ID = " + Contact.ID;
+            txtID.Text = Contact.ID.ToString();
+            if (!string.IsNullOrWhiteSpace(Contact.ImagePath))
+            {
+                llRemoveImage.Visible = true;
+            }
+
         }
 
         private void _LoadCountries()
@@ -63,13 +88,13 @@ namespace WinFormContacts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Contact.FirstName = txtFName.Text;
-            Contact.LastName = txtLName.Text;
-            Contact.Email = txtEmail.Text;
-            Contact.Address = txtAddress.Text;
-            Contact.Phone = txtPhone.Text;
+            Contact.FirstName   = txtFName.Text;
+            Contact.LastName    = txtLName.Text;
+            Contact.Email       = txtEmail.Text;
+            Contact.Address     = txtAddress.Text;
+            Contact.Phone       = txtPhone.Text;
             Contact.DateOfBirth = dtpBirthdate.Value;
-            Contact.CountryID = clsCountry.Find(cbCountries.Text).ID;
+            Contact.CountryID   = clsCountry.Find(cbCountries.Text).ID;
 
             if (string.IsNullOrWhiteSpace(pbPicture.ImageLocation))
             {
@@ -90,6 +115,11 @@ namespace WinFormContacts
                 lblCaption.Text = "Update contact with ID = " + Contact.ID;
                 txtID.Text = Contact.ID.ToString();
                 Mode = enMode.Update;
+            }
+            else
+            {
+                MessageBox.Show("Contact Updated successfully");
+
             }
         }
 

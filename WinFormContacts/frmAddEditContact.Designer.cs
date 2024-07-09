@@ -96,6 +96,7 @@
             this.llRemoveImage.TabIndex = 2;
             this.llRemoveImage.TabStop = true;
             this.llRemoveImage.Text = "remove image";
+            this.llRemoveImage.Visible = false;
             this.llRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llRemoveImage_LinkClicked);
             // 
             // label2

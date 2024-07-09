@@ -34,5 +34,12 @@ namespace WinFormContacts
             frmAddEdit.ShowDialog();
             _Refresh();
         }
+
+        private void updaeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmAddEdit = new frmAddEditContact((int)dgvContacts.CurrentRow.Cells[0].Value);
+            frmAddEdit.ShowDialog();
+            _Refresh();
+        }
     }
 }

@@ -61,13 +61,14 @@
             this.updaeToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(137, 68);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 101);
             // 
             // updaeToolStripMenuItem
             // 
             this.updaeToolStripMenuItem.Name = "updaeToolStripMenuItem";
-            this.updaeToolStripMenuItem.Size = new System.Drawing.Size(136, 32);
+            this.updaeToolStripMenuItem.Size = new System.Drawing.Size(240, 32);
             this.updaeToolStripMenuItem.Text = "Updae";
+            this.updaeToolStripMenuItem.Click += new System.EventHandler(this.updaeToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
