@@ -170,7 +170,7 @@ namespace DataAccess_Layer
         public static bool UpdateContact(int ContactID, string firstName, string lastName, string email,
             string phone, string address, DateTime dateOfBirth, string imagePath, int countryID)
         {
-            if (IsContactExist(ContactID))
+            if (!IsContactExist(ContactID))
             {
                 return false;
             }
