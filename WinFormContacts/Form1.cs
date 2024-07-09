@@ -41,5 +41,22 @@ namespace WinFormContacts
             frmAddEdit.ShowDialog();
             _Refresh();
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var id = (int)dgvContacts.CurrentRow.Cells[0].Value;
+            if (MessageBox.Show("are you sure you want delete contact with ID = " + id,"Delete contact",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (clsContact.DeleteContact(id))
+                {
+                    MessageBox.Show("Contact with ID = " + id + " is deleted successfully");
+                    _Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Sorry, something went wrong!!");
+                }
+            }
+        }
     }
 }
