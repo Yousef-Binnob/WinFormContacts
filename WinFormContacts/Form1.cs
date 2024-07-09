@@ -27,5 +27,12 @@ namespace WinFormContacts
         {
             dgvContacts.DataSource = clsContact.ListContacts();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            var frmAddEdit = new frmAddEditContact(-1);
+            frmAddEdit.ShowDialog();
+            _Refresh();
+        }
     }
 }

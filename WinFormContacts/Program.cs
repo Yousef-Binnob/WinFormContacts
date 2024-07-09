@@ -16,7 +16,7 @@ namespace WinFormContacts
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAddEditContact());
+            Application.Run(new frmMain());
         }
     }
 }

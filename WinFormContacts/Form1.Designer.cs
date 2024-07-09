@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvContacts = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.updaeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContacts)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,15 +53,6 @@
             this.dgvContacts.RowTemplate.Height = 29;
             this.dgvContacts.Size = new System.Drawing.Size(1351, 491);
             this.dgvContacts.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1150, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 50);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Add New Contact";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -84,12 +75,22 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(136, 32);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(1150, 23);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(170, 50);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Add New Contact";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1351, 587);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvContacts);
             this.Name = "frmMain";
             this.Text = "Contacts";
@@ -103,7 +104,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvContacts;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem updaeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
