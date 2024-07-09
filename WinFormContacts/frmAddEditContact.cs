@@ -17,7 +17,7 @@ namespace WinFormContacts
         public enMode Mode = enMode.AddNew;
 
         public int ID { get; set; }
-        public clsContact Contact { get; set; }
+        private clsContact _Contact { get; set; }
         public frmAddEditContact(int id)
         {
             InitializeComponent();
@@ -41,35 +41,34 @@ namespace WinFormContacts
             {
                 lblCaption.Text = "Add new contact";
                 cbCountries.SelectedIndex = 0;
-                Contact = new clsContact();
+                _Contact = new clsContact();
                 return;
             }
 
-            Contact = clsContact.Find(ID);
-            if (Contact == null)
+            _Contact = clsContact.Find(ID);
+            if (_Contact == null)
             {
                 MessageBox.Show("Sorry!! Contact wit id = " + ID + " is not found");
             }
 
-            txtFName.Text             = Contact.FirstName;
-            txtLName.Text             = Contact.LastName;
-            txtEmail.Text             = Contact.Email;
-            txtAddress.Text           = Contact.Address;
-            txtPhone.Text             = Contact.Phone;
-            dtpBirthdate.Value        = Contact.DateOfBirth;
-            cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find(Contact.CountryID).Name);
+            txtID.Text                = _Contact.ID.ToString();
+            txtFName.Text             = _Contact.FirstName;
+            txtLName.Text             = _Contact.LastName;
+            txtEmail.Text             = _Contact.Email;
+            txtAddress.Text           = _Contact.Address;
+            txtPhone.Text             = _Contact.Phone;
+            dtpBirthdate.Value        = _Contact.DateOfBirth;
+            cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find(_Contact.CountryID).Name);
 
-            if (!string.IsNullOrWhiteSpace(Contact.ImagePath))
+            if (!string.IsNullOrWhiteSpace(_Contact.ImagePath))
             {
-                pbPicture.ImageLocation = Contact.ImagePath;
+                pbPicture.Load(_Contact.ImagePath);
             }
 
-            lblCaption.Text = "Update contact with ID = " + Contact.ID;
-            txtID.Text = Contact.ID.ToString();
-            if (!string.IsNullOrWhiteSpace(Contact.ImagePath))
-            {
-                llRemoveImage.Visible = true;
-            }
+            lblCaption.Text = "Update contact with ID = " + _Contact.ID;
+            
+            llRemoveImage.Visible = !string.IsNullOrWhiteSpace(_Contact.ImagePath);
+            
 
         }
 
@@ -88,23 +87,23 @@ namespace WinFormContacts
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Contact.FirstName   = txtFName.Text;
-            Contact.LastName    = txtLName.Text;
-            Contact.Email       = txtEmail.Text;
-            Contact.Address     = txtAddress.Text;
-            Contact.Phone       = txtPhone.Text;
-            Contact.DateOfBirth = dtpBirthdate.Value;
-            Contact.CountryID   = clsCountry.Find(cbCountries.Text).ID;
+            _Contact.FirstName   = txtFName.Text;
+            _Contact.LastName    = txtLName.Text;
+            _Contact.Email       = txtEmail.Text;
+            _Contact.Address     = txtAddress.Text;
+            _Contact.Phone       = txtPhone.Text;
+            _Contact.DateOfBirth = dtpBirthdate.Value;
+            _Contact.CountryID   = clsCountry.Find(cbCountries.Text).ID;
 
             if (string.IsNullOrWhiteSpace(pbPicture.ImageLocation))
             {
-                Contact.ImagePath = "";
+                _Contact.ImagePath = "";
             }
             else
             {
-                Contact.ImagePath = pbPicture.ImageLocation;
+                _Contact.ImagePath = pbPicture.ImageLocation;
             }
-            if (!Contact.Save())
+            if (!_Contact.Save())
             {
                 MessageBox.Show("Some thing went wrong!!!");
                 return;
@@ -112,8 +111,8 @@ namespace WinFormContacts
             if (Mode == enMode.AddNew)
             {
                 MessageBox.Show("Contact added successfully");
-                lblCaption.Text = "Update contact with ID = " + Contact.ID;
-                txtID.Text = Contact.ID.ToString();
+                lblCaption.Text = "Update contact with ID = " + _Contact.ID;
+                txtID.Text = _Contact.ID.ToString();
                 Mode = enMode.Update;
             }
             else
@@ -129,7 +128,7 @@ namespace WinFormContacts
             {
                 if (openDilog.ShowDialog() == DialogResult.OK)
                 {
-                    pbPicture.ImageLocation = Contact.ImagePath = openDilog.FileName;
+                    pbPicture.ImageLocation = _Contact.ImagePath = openDilog.FileName;
                     llRemoveImage.Visible = true;
                 }
             }
@@ -137,7 +136,7 @@ namespace WinFormContacts
 
         private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            pbPicture.ImageLocation = Contact.ImagePath = "";
+            pbPicture.ImageLocation = _Contact.ImagePath = "";
             llRemoveImage.Visible = false;
         }
 
